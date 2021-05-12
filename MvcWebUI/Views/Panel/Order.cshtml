@@ -1,0 +1,53 @@
+﻿@model OrderDetailViewModel
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_Panel.cshtml";
+}
+
+<table class="table table-sm table-hover">
+    <tr>
+        <td>Ürün Id</td>
+        <td>Miktar</td>
+        <td>Fiyat</td>
+    </tr>
+    
+    @if (Model.Orders.Count > 0)
+    {
+
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+
+                <td>@item.OrderID</td>
+                
+                <td>
+                    @item.ProductID
+
+                </td>
+                <td>@item.quantity</td>
+                <td>@item.Total</td>
+            </tr>
+
+
+        }
+        
+
+
+    }
+    else
+    {
+        <tr>
+
+            <td>Sistemde kayıtlı sipariş bulunmamaktadır.</td>
+        </tr>
+
+
+    }
+
+
+
+
+</table>
+
+
+

@@ -1,0 +1,215 @@
+﻿@inject SignInManager<ApplicationUser> signInManager;
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yempazarı</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <!-- Glidejs StyleSheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css" />
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+
+</head>
+<body>
+    <div class="logoyem">
+
+        <img src="~/img/layout/logoyem.jpg" alt="Yempazarı" />
+
+    </div>
+    <header id="home" class="header">
+        <nav class="navigation">
+            <div class="nav-center container">
+
+                <h1 style="color:orange;">YEM<span style="color:white;">PAZARI</span></h1>
+
+
+                <div class="nav-menu">
+                    <div class="nav-top">
+                        <div class="logo">
+                            <h1>YEM<span>PAZARI</span></h1>
+                        </div>
+                        <div class="close">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+
+                    <ul class="nav-list">
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="Product" asp-action="Index">Ürünler</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="SupplierList" asp-action="Index">Satıcılar</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link " asp-area="" asp-controller="About" asp-action="Index">Hakkımızda</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-icons">
+                    @*@if (signInManager.IsSignedIn(User))
+                        {
+
+                            <a class="nav-link  text-dark" asp-area="" asp-controller="Home" asp-action="LogOut">Çıkış Yap</a>
+
+                        }*@
+                    <span><a asp-controller="Login" asp-action="Index" class="fas fa-user"style="color:white;"></a></span>
+                    <span><i class="fas fa-search"></i></span>
+                    <span><a asp-controller="Cart" asp-action="Index" class="fas fa-shopping-basket" style="color:white;"></a></span>
+
+                </div>
+
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content" style="font-size: 20px; margin-top:30px;">
+        <div class="row">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-primary">
+                    @TempData["message"]
+                </div>
+            }
+
+        </div>
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-md-2 sidenav">
+                    @await Component.InvokeAsync("CategoryList")
+                </div>
+                <div class="col-md-10 text-left">
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+        <div class="col-12">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer id="footer" class="section footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-center">
+                    <h3>EXTRALAR</h3>
+                    <a href="#">Tedarikçiler</a>
+                    <a href="#">Ürünler</a>
+                    <a href="#">Kategoriler</a>
+                    <a href="#">Sosyal</a>
+                    <a href="#">Site Haritası</a>
+                </div>
+                <div class="footer-center">
+                    <h3>BİLGİ</h3>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">Gizlilik Politikası</a>
+                    <a href="#">Şartlar & Koşullar</a>
+                    <a href="#">İletişim</a>
+                    <a href="#">Site Haritası</a>
+                </div>
+                <div class="footer-center">
+                    <h3>HESABIM</h3>
+                    <a href="#">Hesabım</a>
+                    <a href="#">Siparişlerim</a>
+                    <a href="#">Anlaşmalı Tedarikçi Ol</a>
+
+                </div>
+                <div class="footer-center">
+                    <h3>İletişim</h3>
+                    <div>
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        Ankara/Türkiye
+                    </div>
+                    <div>
+                        <span>
+                            <i class="far fa-envelope"></i>
+                        </span>
+                        company@company.com
+                    </div>
+                    <div>
+                        <span>
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        0-123-123-12-12
+                    </div>
+                    <div>
+                        <span>
+                            <i class="far fa-paper-plane"></i>
+                        </span>
+                        Ankara, Türkiye
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <!-- Glidejs Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/index.js" asp-append-version="true"></script>
+    <script src="~/js/slider.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

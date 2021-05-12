@@ -1,0 +1,385 @@
+﻿@inject SignInManager<ApplicationUser> signInManager;
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yempazarı</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <!-- Glidejs StyleSheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css" />
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+
+</head>
+<body>
+    
+    <div class="logoyem">
+
+        <img src="~/img/layout/logoyem.jpg" alt="Yempazarı" />
+
+    </div>
+
+    <header id="home" class="header">
+        
+        <nav class="navigation">
+            <div class="nav-center container">
+
+                <h1 style="color:orange;">YEM<span style="color:white;">PAZARI</span></h1>
+
+
+                <div class="nav-menu">
+                    <div class="nav-top">
+                        <div class="logo">
+                            <h1 class="logoyem">YEM<span>PAZARI</span></h1>
+                        </div>
+                        <div class="close">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+
+                    <ul class="nav-list">
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+                        @*@await Component.InvokeAsync("PropertyList")*@
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="Product" asp-action="Index">Ürünler</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="SupplierList" asp-action="Index">Satıcılar</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link " asp-area="" asp-controller="About" asp-action="Index">Hakkımızda</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-icons">
+                    @*@if (signInManager.IsSignedIn(User))
+                    {
+
+                        <a class="nav-link  text-dark" asp-area="" asp-controller="Home" asp-action="LogOut">Çıkış Yap</a>
+
+                    }*@
+                    <span><a asp-controller="Login" asp-action="Index" class="fa-user"></a></span>
+                    <span><i class="fas fa-search"></i></span>
+                    <span><a asp-controller="Cart" asp-action="Index" class="fas fa-shopping-basket" style="color:white;"></a></span>
+
+                </div>
+
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero -->
+        <div class="container">
+            <section class="hero">
+                <div class="glide glide1" id="glide1">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides glide__hero">
+
+                            <li class="glide__slide">
+                                <div class="banner">
+
+                                    <img src="~/img/layout/deneme.jpg" class="special_01" alt="">
+                                </div>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div class="banner banner1">
+
+                                    <img src="~/img/layout/deneme2.jpg" class="special_02" alt="">
+                                </div>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div class="banner">
+
+                                    <img src="~/img/layout/deneme3.jpg" class="special_03" alt="">
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                    <!-- Arrows -->
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-arrow-left"></i></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Category -->
+        <section class="section category">
+            <h2 class="title">Yem ve Hammadde Tedarikçiniz!</h2>
+            <div class="category-center container">
+
+                <div class="category-box">
+                    <img src="~/img/layout/deneme.jpg" alt="">
+                    <div class="content">
+                        <h2>Büyükbaş Hayvan Yemleri</h2>
+                        <span>100+</span>
+                        <a href="#">Görüntüle</a>
+                    </div>
+                </div>
+
+                <div class="category-box">
+                    <img src="~/img/layout/deneme2.jpg" alt="">
+                    <div class="content">
+                        <h2>Küçükbaş Hayvan Yemleri</h2>
+                        <span>100+</span>
+                        <a href="#">Görüntüle</a>
+                    </div>
+                </div>
+
+                <div class="category-box">
+                    <img src="~/img/layout/deneme3.jpg" alt="">
+                    <div class="content">
+                        <h2>Yem Katkıları ve Hammaddeler</h2>
+                        <span>100+</span>
+                        <a href="#">Görüntüle</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+            
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+
+                    <img src="~/img/layout/indirim.jpg" class="logo-special" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="~/img/layout/huge.png" class="indirim" alt="" style="width: 100vh;height:535px;">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Filtered Products -->
+        <section class="section sort-category">
+            <div class="title-container ">
+                <div class="section-titles">
+                    <div class="section-title active filter-btn" data-id="trend">
+
+                        <h1 class="primary-title">Öne Çıkan Ürünler</h1>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <div class="container">
+            <p style="font-size: 24px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a mollis nisl, quis ornare dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ultricies magna non tempor imperdiet. Nullam a augue ut lacus ullamcorper facilisis id vel sapien. Vestibulum eu tempus sem. Sed venenatis nulla id arcu sollicitudin consequat. Cras lacinia urna eu pharetra tincidunt. Nulla ipsum lacus, bibendum a nibh id, tempor iaculis enim. Ut at dolor id sem semper pulvinar.</p>
+            <div class="container">
+                @RenderBody()
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <section class="section" id="shop">
+            <div class="title-container">
+                <div class="section-titles">
+                    <div class="section-title active" data-id="latest">
+
+                        <h1 class="primary-title">Tedarikçiler</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-center product-center container">
+
+            </div>
+        </section>
+
+        <div class="section brands container">
+            <div class="glide" id="glide2">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <img src="~/img/layout/deneme2.jpg" alt="">
+                        </li>
+                        <li class="glide__slide">
+                            <img src="~/img/layout/deneme.jpg" alt="">
+                        </li>
+                        <li class="glide__slide">
+                            <img src="~/img/layout/deneme3.jpg" alt="">
+                        </li>
+                        <li class="glide__slide">
+                            <img src="~/img/layout/deneme4.jpg" alt="">
+                        </li>
+                        <li class="glide__slide">
+                            <img src="~/img/layout/deneme.jpg" cla alt="">
+                        </li>
+                        <li class="glide__slide">
+                            <img src="~/img/layout/deneme4.jpg" alt="">
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Facility -->
+        <section class="facility section" id="facility">
+            <div class="facility-contianer container">
+                <div class="facility-box">
+                    <div class="facility-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <p>TÜRKİYENİN HER YERİNE TEDARİK</p>
+                </div>
+
+                <div class="facility-box">
+                    <div class="facility-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <p>GÜVENLİ ÖDEME</p>
+                </div>
+
+                <div class="facility-box">
+                    <div class="facility-icon">
+                        <i class="far fa-credit-card"></i>
+                    </div>
+                    <p>ANLAŞMALI FİRMALAR</p>
+                </div>
+
+                <div class="facility-box">
+                    <div class="facility-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <p>7/24 ONLINE DESTEK</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="section footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-center">
+                    <h3>EXTRALAR</h3>
+                    <a href="#">Tedarikçiler</a>
+                    <a href="#">Ürünler</a>
+                    <a href="#">Kategoriler</a>
+                    <a href="#">Sosyal</a>
+                    <a href="#">Site Haritası</a>
+                </div>
+                <div class="footer-center">
+                    <h3>BİLGİ</h3>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">Gizlilik Politikası</a>
+                    <a href="#">Şartlar & Koşullar</a>
+                    <a href="#">İletişim</a>
+                    <a href="#">Site Haritası</a>
+                </div>
+                <div class="footer-center">
+                    <h3>HESABIM</h3>
+                    <a href="#">Hesabım</a>
+                    <a href="#">Siparişlerim</a>
+                    <a href="#">Anlaşmalı Tedarikçi Ol</a>
+
+                </div>
+                <div class="footer-center">
+                    <h3>İletişim</h3>
+                    <div>
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        Ankara/Türkiye
+                    </div>
+                    <div>
+                        <span>
+                            <i class="far fa-envelope"></i>
+                        </span>
+                        company@company.com
+                    </div>
+                    <div>
+                        <span>
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        0-123-123-12-12
+                    </div>
+                    <div>
+                        <span>
+                            <i class="far fa-paper-plane"></i>
+                        </span>
+                        Ankara, Türkiye
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+
+    <!-- Glidejs Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/index.js" asp-append-version="true"></script>
+    <script src="~/js/slider.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

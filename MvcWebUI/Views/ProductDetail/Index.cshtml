@@ -1,0 +1,69 @@
+﻿@model ProductDetailViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ProductDetailContent.cshtml";
+}
+
+<div class="container">
+
+   
+    <h1 class="my-4">
+        @Model.ProductName
+        
+    </h1>
+
+    
+    <div class="row">
+
+        <div class="col-md-8">
+            <img class="img-fluid w-50" src="~/img/@Model.PictureUrl" alt="@Model.ProductName">
+        </div>
+
+        <div class="col-md-4">
+            <h3 class="my-3">Ürün Detayları</h3>
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.Description))
+        <ul>
+            <li>Ürün Adı: @Model.ProductName</li>
+            <li>Fiyat: @Model.Price.ToString("c")</li>
+            <li>Stok: @Model.Stock</li>
+            <li>Miktar: @Model.quantity</li>
+            
+        </ul>
+        <a class="btn btn-sm btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@Model.ProductID">Sepete Ekle</a>
+        </div>
+
+    </div>
+   
+    <h3 class="my-4">Benzer Ürünler</h3>
+
+    <div class="row">
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+    </div>
+   
+
+</div>
+

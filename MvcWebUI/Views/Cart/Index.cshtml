@@ -1,0 +1,93 @@
+﻿@model CartListViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Cart.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/cart.css" />
+<link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
+@if (Model.Cart.CartLines.Count == 0)
+{
+    <h1 class="badge badge-danger">Sepet Boş</h1>
+
+}
+else
+{
+<div class="card">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Sipariş Özeti</b></h4>
+                    </div>
+                    <div class="col align-self-center text-right text-muted">@Model.Cart.CartLines.Count Sipariş</div>
+                </div>
+            </div>
+            @foreach (var cartLine in Model.Cart.CartLines)
+            {
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" id="productimg" src="~/img/@cartLine.Product.PictureUrl" alt="@cartLine.Product.ProductName"></div>
+                        <div class="col">
+                            <div class="row text-muted">Ürün</div>
+                            <div class="row">@cartLine.Product.ProductName</div>
+                        </div>
+                        <div class="col">
+                            <div class="row text-muted">Miktar</div>
+                            <div class="row"><a href="#" class="border">@cartLine.Quantity</a></div>
+                        </div>
+                        <div class="col">
+                            <div class="row text-muted">Fiyat</div>
+                            <div class="row">@cartLine.Product.UnitPrice.ToString("c");</div>
+                        </div>
+                        <div class="col">
+                            <div class="row text-muted"><a class="btn btn-sm btn-danger" asp-controller="Cart" asp-action="RemoveFromCart" asp-route-productId="@cartLine.Product.ProductID">Kaldır</a></div>
+                           
+                        </div>
+
+                    </div>
+                </div>
+            }
+            
+            
+            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Alışverişe Devam Et</span></div>
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Özet</b></h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;">Ürün Sayısı: @Model.Cart.CartLines.Count</div>
+                <div class="col text-right">@Model.Cart.Total.ToString("c"); </div>
+            </div>
+            <form>
+                <p>Kargo</p> <select>
+                    <option class="text-muted">Standard-Kargo- 5.00 TL</option>
+                </select>
+                <p>İndirim Kodu</p> <input id="code" placeholder="İndirim kodunu giriniz.">
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">Toplam Fiyat</div>
+                <div class="col text-right">@Model.Cart.Total.ToString("c")</div>
+                <a class="btn btn-lg btn-success" asp-controller="Cart" asp-action="Complete">Sipariş Ver</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+﻿@model SupplierInfoModel 
+@{
+    ViewData["Title"] = "AddInfo";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Kullanıcı Bilgilerini Giriniz.</h1>
+
+
+
+<form method="post" asp-action="AddInfo" class="w-75 mx-auto p-3" enctype="multipart/form-data">
+
+
+    <input type="hidden" asp-for="SupplierID" />
+
+
+    <div class=" form-group">
+
+
+        <label asp-for="CompanyName"></label>
+        <span asp-validation-for="CompanyName"></span>
+        <input asp-for="CompanyName" class="form-control" />
+    </div>
+    <div class=" form-group">
+
+
+        <label asp-for="ContactTitle"></label>
+        <span asp-validation-for="ContactTitle"></span>
+        <input asp-for="ContactTitle" class="form-control" />
+    </div>
+    <div class=" form-group">
+
+
+        <label asp-for="Phone"></label>
+        <span asp-validation-for="Phone"></span>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <div class=" form-group">
+
+
+        <label asp-for="ContactName"></label>
+        <span asp-validation-for="ContactName"></span>
+        <input asp-for="ContactName" class="form-control" />
+    </div>
+    
+    <div class=" form-group">
+
+
+        <label asp-for="Adress"></label>
+        <span asp-validation-for="Adress"></span>
+        <input asp-for="Adress" class="form-control" />
+    </div>
+    <div class=" form-group">
+
+
+        <label asp-for="TaxNumber"></label>
+        <span asp-validation-for="TaxNumber"></span>
+        <input asp-for="TaxNumber" class="form-control" />
+    </div>
+    <div class=" form-group">
+
+
+        <label asp-for="TaxOffice"></label>
+        <span asp-validation-for="TaxOffice"></span>
+        <input asp-for="TaxOffice" class="form-control" />
+    </div>
+
+    <div class=" form-group">
+
+
+        <label>Logo Ekle</label>
+
+        <input type="file" asp-for="@Model.Picture" />
+    </div>
+
+
+
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <button type="submit" class="btn btn-info btn-sm">Kaydet</button>
+</form>
+

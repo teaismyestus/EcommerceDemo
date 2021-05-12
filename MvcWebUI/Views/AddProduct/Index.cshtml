@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Entities.Concrete.Product>
+
+<br />
+
+<div class="container row p-o m-o">
+    <div class="col-9">
+
+        <h2 class="text-info">Ürün İşlemleri</h2>
+    </div>
+    <div class="col-3">
+        <a asp-controller="AddProduct" asp-action="Create" class="btn btn-info form-control text-white">Ürün Ekle</a>
+
+
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+
+        <form method="post">
+            @if (Model.Count() > 0)
+            {
+
+                <table class="table-table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label>Ürün ID</label>
+
+                        </th>
+                        <th>
+                            <label>Ürün İsmi</label>
+
+                        </th>
+                        <th>
+                            <label>Birim Başına Miktar</label>
+
+                        </th>
+                        <th>
+                            <label>Fiyat</label>
+
+                        </th>
+                        <th>
+                            <label>Stok Adedi</label>
+
+                        </th>
+                        <th></th>
+
+
+                    </tr>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+
+                            <td>@product.ProductID</td>
+                            <td>@product.ProductName</td>
+                            <td>@product.QuantityPerUnit</td>
+                            <td>@product.UnitPrice</td>
+                            <td>@product.UnitsInStock</td>
+                            <td><a class="btn btn-sm btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@product.ProductID">Sepete Ekle</a></td>
+
+                        </tr>
+
+                    }
+
+                </table>
+
+            }
+            else
+            {
+
+                <p>Listede ürün bulunamadı.</p>
+
+            }
+
+
+        </form>
+    </div>
+
+</div>
+
+
+

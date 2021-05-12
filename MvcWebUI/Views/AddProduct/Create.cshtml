@@ -1,0 +1,48 @@
+﻿@model Entities.Concrete.Product
+
+<br />
+<br />
+<br />
+
+
+<h2 class="text-info text-center">Ürün Ekle</h2>
+<div class="border p-3 container">
+    <form method="post" asp-controller="AddProduct" asp-action="Create">
+
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Ürün İsmi</label>
+            <input asp-for="ProductName" type="text" class="form-control" id="formGroupExampleInput" placeholder="Ürün ismini giriniz.">
+
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Kategori</label>
+            <input asp-for="CategoryID" type="number" class="form-control" id="formGroupExampleInput3" placeholder="Kategoriyi Giriniz">
+
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Stok Adedi</label>
+            <input asp-for="UnitsInStock" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Stok adedini giriniz.">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Birim Ağırlık</label>
+            <input asp-for="QuantityPerUnit" type="text" class="form-control" id="formGroupExampleInput4" placeholder="Ürün ağırlığını giriniz">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Satıcı</label>
+            <input asp-for="SupplierID" type="number" class="form-control" id="formGroupExampleInput5" placeholder="Satıcı ID giriniz">
+        </div>
+
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Fiyatını giriniz</label>
+            <input asp-for="UnitPrice" type="number" class="form-control" id="formGroupExampleInput6" placeholder="Ürün fiyatını giriniz.">
+        </div>
+        <input type="submit" class="btn btn-info w-100 " value="Ekle" />
+
+
+
+        </form>
+
+</div>
+    
+ 
